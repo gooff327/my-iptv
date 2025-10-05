@@ -96,7 +96,7 @@ with open('iptv.m3u8', 'w', encoding='utf-8') as f_live:
         else:
             multicast_addr = match.group(1)
         
-        proxy_url = f"http://192.168.0.2:8888/udp/{multicast_addr}"
+        proxy_url = f"http://192.168.1.113:4022/udp/{multicast_addr}"
         
         # 写入m3u条目（使用清理后的频道名称）
         f_live.write(f'#EXTINF:-1, {channel_name}\n')
@@ -153,4 +153,5 @@ with open('iptv_playback.m3u8', 'w', encoding='utf-8') as f_playback:
         playback_count += 1
 
 print(f"回放列表已写入iptv_playback.m3u8文件，包含{playback_count}个频道")
+
 print("任务完成！")
